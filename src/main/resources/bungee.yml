@@ -1,0 +1,9 @@
+name: BungeeRejoin
+main: cn.cyanbukkit.rejoin.Rejoin
+author: CyanBukkit
+version: "${version}"
+description: BungeeRejoin
+# Depends: [BungeeCord]
+# SoftDepends: [BungeeCord]
+# Load: POSTWORLD
+# Api-version: 1.13
