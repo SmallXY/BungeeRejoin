@@ -7,7 +7,9 @@
 
 ```yaml
 
-message: '&aYou have been reconnected to the server.'
+message:
+  rejoined: '&aYou have been reconnected to the server.'
+  rejoinError: "§c§lYou didn't play games."
 gameList:
   - 'bw_1'
   - "bw_2"
