@@ -29,6 +29,13 @@ class Rejoin : Plugin() , Listener {
         logger.info("BungeeRejoin Loaded")
     }
 
+    override fun onDisable() {
+        player.keys.forEach {
+            player.set(it, null)
+        }
+        savePlayerData()
+    }
+
     fun savePlayerData() {
         ConfigurationProvider.getProvider(YamlConfiguration::class.java).save(player, playerData)
     }
@@ -40,6 +47,10 @@ class Rejoin : Plugin() , Listener {
         if (config.getStringList("gameList").contains(e.player.server.info.name)) {
             player.set("${e.player.uniqueId}", e.player.server.info.name)
             savePlayerData()
+            instance.proxy.scheduler.schedule(instance, {
+                player.set("${e.player.uniqueId}", null)
+                savePlayerData()
+            }, config.getLong("timeRange"), java.util.concurrent.TimeUnit.SECONDS)
         }
     }
 

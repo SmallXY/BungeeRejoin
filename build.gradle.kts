@@ -6,7 +6,13 @@ repositories {
     maven("https://nexus.cyanbukkit.cn/repository/maven-public")
 }
 
-version = "1.0"
+version = "1.1"
+
+
+kotlin {
+    jvmToolchain(17)
+}
+
 
 dependencies {
     compileOnly("net.md-5:bungeecord-api:1.19-R0.1-SNAPSHOT")
